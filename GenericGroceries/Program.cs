@@ -2,7 +2,7 @@
 using GenericGroceries;
 
 Console.WriteLine("What do you want to shop for?");
-Console.WriteLine("1. Eggs\n2. Vegetables\n3. Both");
+Console.WriteLine("1. Eggs\n2. Vegetables\n");
 
 switch (Console.ReadLine())
 {
