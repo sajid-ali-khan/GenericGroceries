@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace GenericGroceries
 {
-    public class Shopping<T> where T: Grocery
+    public abstract class Shopping<T> where T: Grocery
     {
         private List<T> groceryList;
         private int total;
@@ -23,14 +23,14 @@ namespace GenericGroceries
             ShowGroceryDetails();
         }
 
-        public void AddItem(T item)
+        public abstract void AddItem(T item)
         {
             groceryList.Add(item);
             Console.WriteLine($"\nAdded {item.Name} to the grocery list.\n");
             Thread.Sleep(200);
         }
 
-        private void AddItems()
+        private abstract void AddItems()
         {
             Console.WriteLine("Adding items to the grocery list...");
             Console.WriteLine("You can add multiple items of type: " + typeof(T).Name);
@@ -54,7 +54,7 @@ namespace GenericGroceries
             }
         }
 
-        private void AskQuantitiesAndPrices()
+        private abstract void AskQuantitiesAndPrices()
         {
             foreach (var item in groceryList)
             {
@@ -70,7 +70,7 @@ namespace GenericGroceries
             }
         }
 
-        private void CalculateTotal()
+        private abstract void CalculateTotal()
         {
             Console.WriteLine("Calculating the total...");
             Thread.Sleep(2000);
@@ -80,7 +80,7 @@ namespace GenericGroceries
             }
         }
 
-        private void ShowGroceryDetails()
+        private abstract void ShowGroceryDetails()
         {
             Console.WriteLine("\n---- Grocery List Details ----");
             foreach (var item in groceryList)
